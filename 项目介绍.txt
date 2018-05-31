@@ -1,0 +1,100 @@
+介绍：这是我学习的前几个小项目，提供大家学习和思考
+  
+电子词典：提供单词查找的功能 a-d之间的单词查找
+
+功能说明 ： 
+
+1.用户能够登录注册 
+  登录凭借用户名和密码即可
+  注册 要求用户名和密码 要求用户名不能重复
+2. 用户信息需要长期保存
+   使用mysql 或者 mongo
+3. 要求能够满足多用户同时登录操作的情况
+4. 用户开启客户端即进入 登录 注册  退出 界面
+5. 用户登录后即进入用户的 查词  查看历史记录  退出界面
+   查词 ： 英英词典  可以循环查询  查一个词会反馈给客         户端词义
+   历史记录 ： 查看自己曾经的查词记录  返回给用户查过哪些词 ，用户名， 什么时间差的 
+   退出 ： 退到上一级界面
+6. 单词词义从单词本获取
+ * 每个单词占一行
+ * 单词和解释之间有空格
+ * 单词按顺序排列
+
+服务端：
+main()   : 创建套接字 ---》 父子进程 ---》子进程等待客户端请求recv ---》 父进程等待其他客户端链接accept
+
+child() : 接受请求 根据请求调用功能函数 quit()
+login() : 操作数据库比对用户密码 回复结果
+register() ： 插入数据库 
+query() ： 查询数据库将结果给客户端  插入历史记录
+history() ： 查询数据库 将结果给客户端
+
+客户端 ： 
+main（） ： 创建套接字 发送链接请求 ---》一级界面
+            input ---》发送请求
+
+login（） 登录   ---》进入二级界面
+register（） 注册
+
+query（） 发送请求 接受反馈  打印
+history（） 发送请求 接受反馈  打印
+
+
+简单介绍
+首先：先在数据库插入三个表  用于保存用户注册信息  和单词字典   和用户记录表
+然后：创建服务端 和 客服端  等等：
+
+Introduction: This is the first few small projects that I study to provide everyone with learning and thinking
+  
+Electronic dictionary: function to provide word search a-d word search
+
+Function Description : 
+
+1. Users can log in to register
+  Login with username and password
+  Registration requires user name and password
+2. User information needs long-term preservation
+   Use mysql or mongo
+3. Requirements to be able to meet the simultaneous login operation of multiple users
+4. The user opens the client and enters the login login exit interface
+5. The user enters the user's search word after logging in. View the history Exit the interface
+   Check the word : English-Chinese dictionary can be cycled to find a word will feedback to the client word meaning
+   Historical records : View your own search word records Back to the user to find what words, user name, what time difference
+   Exit : Retire to the previous level
+6. Word Meaning Obtained from Word Book
+ * One line per word
+ * There is a space between the word and the explanation
+ * Words are arranged in order
+
+Server:
+Main() : create socket ---" parent-child process ---" child process waits for client request recv ---" parent process waits for other client links accept
+
+Child() : Accept the request Call the function function quit() on request
+Login() : Operation database match user password Reply result
+Register() : insert database
+Query() : Query the database to give the result to the client Insert History
+History() : query database to send the result to the client
+
+Client :
+Main() : Create a Socket Send Link Request ---"Level 1 Interface
+            Input ---" send request
+
+Login() login ---" into the second level interface
+Register() Register
+
+Query() Send request Accept feedback Print
+History() Send request Accept feedback Print
+
+
+a brief introdction
+First of all: insert three tables in the database for saving user registration information and word dictionary and user record table
+Then: Create the server and customer service, etc.:
+
+
+
+
+
+
+
+
+
